@@ -19,3 +19,8 @@ lite example repository.
 - Train your model https://teachablemachine.withgoogle.com/
 - Export as a Quantized model for TensorFlow lite
 - Copy it into the app, ajust the paths.
+
+## References
+
+for additional operators:
+https://www.tensorflow.org/lite/guide/ops_select

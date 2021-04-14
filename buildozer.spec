@@ -10,7 +10,7 @@ package.name = tflitetest
 package.domain = com.meltingrocks
 
 # (str) Source code where the main.py live
-source.dir = .
+source.dir = . 
 
 # (list) Source files to include (let empty to include all the files)
 source.include_exts = py,png,jpg,kv,atlas,tflite,txt
@@ -88,6 +88,19 @@ fullscreen = 0
 android.permissions = INTERNET,CAMERA
 
 # (int) Target Android API, should be as high as possible.
+android.api = 28
+
+# (int) Minimum API your APK will support.
+android.minapi = 23
+
+# (int) Android SDK version to use
+android.sdk = 28
+
+# (str) Android NDK version to use
+android.ndk = 19b
+
+
+# (int) Target Android API, should be as high as possible.
 #android.api = 27
 
 # (int) Minimum API your APK will support.
@@ -156,7 +169,7 @@ android.permissions = INTERNET,CAMERA
 
 # (list) Gradle dependencies to add (currently works only with sdl2_gradle
 # bootstrap)
-android.gradle_dependencies = "org.tensorflow:tensorflow-lite:+",'org.tensorflow:tensorflow-lite-support:0.0.0-nightly'
+android.gradle_dependencies = "org.tensorflow:tensorflow-lite:+",'org.tensorflow:tensorflow-lite-support:0.0.0-nightly', 'org.tensorflow:tensorflow-lite-select-tf-ops:0.0.0-nightly-SNAPSHOT'
 #org.tensorflow:tensorflow-android:+"
 
 # (list) add java compile options
@@ -220,8 +233,8 @@ android.gradle_dependencies = "org.tensorflow:tensorflow-lite:+",'org.tensorflow
 #android.copy_libs = 1
 
 # (str) The Android arch to build for, choices: armeabi-v7a, arm64-v8a, x86, x86_64
-android.arch = armeabi-v7a
-
+#android.arch = armeabi-v7a
+android.arch = arm64-v8a
 # (int) overrides automatic versionCode computation (used in build.gradle)
 # this is not the same as app version and should only be edited if you know what you're doing
 # android.numeric_version = 1
@@ -237,7 +250,8 @@ android.arch = armeabi-v7a
 #p4a.branch = master
 
 # (str) python-for-android git clone directory (if empty, it will be automatically cloned from github)
-p4a.source_dir = /home/tito/code/python-for-android-implementation
+#p4a.source_dir = /home/tito/code/python-for-android-implementation
+p4a.source_dir = ~/p4a
 
 # (str) The directory in which python-for-android should look for your own build recipes (if any)
 #p4a.local_recipes =

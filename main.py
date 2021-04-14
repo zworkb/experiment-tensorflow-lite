@@ -26,10 +26,30 @@ class TestCamera(App):
     normalized_result = StringProperty("")
 
     def build(self):
+        print("START_CAMERA request perms")
+        from android.permissions import request_permissions, Permission
+        def callback(permission, results):
+            if all([res for res in results]):
+                print("got perm")
+            else:
+                print("waiting for perm")
+
+        request_permissions([Permission.CAMERA], callback)
+
         Clock.schedule_once(self.start_camera, .5)
         return F.CameraClassifier()
 
     def start_camera(self, *largs):
+        print("START_CAMERA request perms")
+        from android.permissions import request_permissions, Permission
+        def callback(permission, results):
+            if all([res for res in results]):
+                print("got perm")
+            else:
+                print("waiting for perm")
+
+        request_permissions([Permission.CAMERA], callback)
+
         self.root.ids.camera.play = True
         self.root.ids.camera._camera.bind(on_texture=self.on_camera_texture)
         from tflwrapper.tfl_android import TFLWrapperAndroid
